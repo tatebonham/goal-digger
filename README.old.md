@@ -8,6 +8,11 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 ## Wireframe
 
+![Landing Page](public/Landing-page.png)
+![Landing Page 2](public/Landing-page-2.png)
+![Profile View](public/Profile-view.png)
+![Goals View](public/Goals-View.png)
+
 ## ERD
 
 ![ERD](public/erd.jpeg)
