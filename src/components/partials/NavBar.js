@@ -5,11 +5,11 @@ export default function NavBar(){
         <nav>
             <div>
                 
-                    <Link to = "/"> Home Page </Link> |
-                    <Link to ="/UserLogin"> Login </Link> |
-                    <Link to ="/UserNew"> Create New Account </Link> |
-                    <Link to ="/Profile"> Go To Your Profile </Link> |
-                    <Link to ="/"> LogOut </Link>
+                <Link to = "/"> Home Page </Link> |
+                <Link to ="/UserLogin"> Login </Link> |
+                <Link to ="/UserNew"> Create New Account </Link> |
+                <Link to ="/Profile"> Go To Your Profile </Link> |
+                <Link to ="/"> LogOut </Link>
                
             </div>
         </nav>
