@@ -47,13 +47,15 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 ### Bucketlist Goals
 
 | HTTP METHOD (_Verb_) | URL (_Nouns_)             | CRUD | Response                                       | Notes |
-| -------------------- | ------------------------- | ---- | ---------------------------------------------- | ----- | --------------- |
+| -------------------- | ------------------------- | ---- | ---------------------------------------------- | ----- |
 | POST                 | /goals/:goalId/inprogress | C    | add goal to user's in progress bucketlist      |       |
 | DELETE               | /goals/:goalId/inprogress | D    | remove goal from user's in progress bucketlist |       |
 | POST                 | /goals/:goalId/completed  | C    | add goal to user's completed bucketlist        |       |
 | DELETE               | /goals/:goalId/completed  | D    | remove goal from user's completed bucketlist   |       |
 | POST                 | /goals                    | U    | create a new goal                              |       |
-| PUT                  | /goals/:goalId            | U    | edit a goal                                    |       | ## User Stories |
+| PUT                  | /goals/:goalId            | U    | edit a goal                                    |       |
+
+## User Stories
 
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.

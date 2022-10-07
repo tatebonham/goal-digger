@@ -7,6 +7,7 @@ import Profile from './components/pages/users/Profile'
 import ProfileEdit from './components/pages/users/ProfileEdit'
 import UserNew from './components/pages/users/UserNew'
 import UserLogin from './components/pages/users/UserLogin'
+import NavBar from './components/partials/NavBar'
 
 
 function App() {
