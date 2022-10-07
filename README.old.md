@@ -9,6 +9,9 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 ## Wireframe
 
 ## ERD
+href="public/erd.jpeg"
+
+
 
 ## RESTful Routes
 
