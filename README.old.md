@@ -25,6 +25,7 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 ## MVP
 
 - Set up react client with routes
+- Set up mongoose server
 - Set up user authentication with password encryption
 - Set up CRUD functionality for user
 - Set up CRUD functionality for bucket list goal
