@@ -21,6 +21,8 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 ![wireframe](./Goal-Digger-Wireframe/Goals-View.png)
 
+
+
 ## ERD
 
 ![ERD](public/erd.jpeg)
