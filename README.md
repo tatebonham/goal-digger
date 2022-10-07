@@ -22,7 +22,7 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 ## ERD
 
-![ERD](public/erd.jpeg)
+![ERD](public/ERD.png)
 
 ## RESTful Routes
 
@@ -79,3 +79,4 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 - See other peoples profiles with their added bucket list goals
 - Be able to favorite other's bucket list goals and add that to the users own profile list
+- Be able to leave comments on goals
