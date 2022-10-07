@@ -8,8 +8,10 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 ## Wireframe
 Profile view
-![wireframe](goal-digger-wireframe.png)
-![wireframe]()
+![wireframe](./Goal-Digger-Wireframe/Landing-page.png)
+![wireframe](./Goal-Digger-Wireframe/Landing-page-2.png)
+![wireframe](./Goal-Digger-Wireframe/Profile-view.png)
+![wireframe](./Goal-Digger-Wireframe/Goals-View-2.png)
 
 ## ERD
 
