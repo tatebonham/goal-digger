@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# goal-digger
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bucket List Application
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+A one stop shop for all your bucket list ideas! Plan your future goals and keep track of those completed. See other's goals and steal them for your own ideas.
 
-### `npm start`
+## Wireframe
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Landing page 1 - Bucket list options
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![wireframe](./Goal-Digger-Wireframe/Landing-page.png)
+- Landing page 2 - more options
 
-### `npm test`
+![wireframe](./Goal-Digger-Wireframe/Landing-page-2.png)
+- Profile View - view your basic profile information and your lists
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![wireframe](./Goal-Digger-Wireframe/Profile-view.png)
+- Goals View - view your saved goals and lists
 
-### `npm run build`
+![wireframe](./Goal-Digger-Wireframe/Goals-View.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ERD
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![ERD](public/erd.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## RESTful Routes
 
-### `npm run eject`
+### Users
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| HTTP METHOD (_Verb_) | URL (_Nouns_)        | CRUD | Response                                                   | Notes |
+| -------------------- | -------------------- | ---- | ---------------------------------------------------------- | ----- |
+| GET                  | /users/new           | R    | a form for creating a new user                             |       |
+| POST                 | /users               | C    | create new user                                            |       |
+| GET                  | /users/:profile      | R    | show user's profile                                        |       |
+| GET                  | /users/:profile/edit | R    | a form for editing the user's profile                      |       |
+| PUT                  | /users/:profile      | U    | edit the user's profile                                    |       |
+| GET                  | /users/login         | R    | show a login form                                          |       |
+| POST                 | /users/login         | C    | accept a payload of form data and use it to login the user |       |
+| GET                  | /users/logout        | R    | logout a user by clearing the stored cookie                |       |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Bucketlist Goals
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| HTTP METHOD (_Verb_) | URL (_Nouns_)  | CRUD | Response                                              | Notes |
+| -------------------- | -------------- | ---- | ----------------------------------------------------- | ----- |
+| GET                  | /goals/all     | R    | show page of bucketlist items from the bucketlist API |       |
+| POST                 | /goals/:goalId | C    | add goal to user's bucketlist                         |       |
+| DELETE               | /goals/:goalId | D    | remove goal from user's bucketlist                    |       |
+| GET                  | /goals/create  | R    | a form for creating a new bucketlist item             |       |
+| POST                 | /goals/create  | U    | create a new goal                                     |       |
+| GET                  | /goals/edit    | R    | a form for editing a goal                             |       |
+| PUT                  | /goals/edit    | U    | edit a goal                                           |       |
+| DELETE               | /goals/edit    | D    | delete a goal                                         |       |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## User Stories
 
-## Learn More
+- As an unregistered user, I would like to sign up with email and password.
+- As a registered user, I would like to sign in with email and password.
+- As a signed in user, I would like to change password.
+- As a signed in user, I would like to sign out.
+- As a signed in user, I would like to create a list item with a title and description.
+- As a signed in user, I would like to update my list item's title and description.
+- As a signed in user, I would like to delete my list item.
+- As a signed in user, I would like to see all my list items but not other users'.
+- As a signed in user, I would like to cross off items to complete them.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## MVP
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Set up react client with routes
+- Set up mongoose server
+- Set up user authentication with password encryption
+- Set up CRUD functionality for user
+- Set up CRUD functionality for bucket list goal
+- Add a carousel on the home page that rotates through different bucket list ideas
+- Show a page of bucket list ideas
+- Show the users profile with all bucket list goals they have been added.
 
-### Code Splitting
+## Stretch Goals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- See other peoples profiles with their added bucket list goals
+- Be able to favorite other's bucket list goals and add that to the users own profile list
