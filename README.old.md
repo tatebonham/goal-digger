@@ -7,11 +7,11 @@ Bucket List Application
 A one stop shop for all your bucket list ideas! Plan your future goals and keep track of of those completed. See other's goals and steal them for your own ideas.
 
 ## Wireframe
-Profile view
+
 ![wireframe](./Goal-Digger-Wireframe/Landing-page.png)
 ![wireframe](./Goal-Digger-Wireframe/Landing-page-2.png)
 ![wireframe](./Goal-Digger-Wireframe/Profile-view.png)
-![wireframe](./Goal-Digger-Wireframe/Goals-View-2.png)
+![wireframe](./Goal-Digger-Wireframe/Goals-View.png)
 
 ## ERD
 
