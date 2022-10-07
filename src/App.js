@@ -7,6 +7,7 @@ import Profile from './components/pages/users/Profile'
 import ProfileEdit from './components/pages/users/ProfileEdit'
 import UserNew from './components/pages/users/UserNew'
 import UserLogin from './components/pages/users/UserLogin'
+import NavBar from './components/partials/NavBar'
 
 
 function App() {
@@ -15,13 +16,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route to='/' element={<Home />} />
-          <Route to='/user/new' element={<UserNew />} />
-          <Route to='/user/login' element={<UserLogin />} />
-          <Route to='/user/:id' element={<Profile />} />
-          <Route to='/user/:id/edit' element={<ProfileEdit />} />
-          <Route to='/goal/new' element={<GoalNew />} />
-          <Route to='/goal/:id/edit' element={<GoalEdit />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/user/new' element={<UserNew />} />
+          <Route path='/user/login' element={<UserLogin />} />
+          <Route path='/user/:id' element={<Profile />} />
+          <Route path='/user/:id/edit' element={<ProfileEdit />} />
+          <Route path='/goal/new' element={<GoalNew />} />
+          <Route path='/goal/:id/edit' element={<GoalEdit />} />
         </Routes>
       </BrowserRouter>
     </div>
