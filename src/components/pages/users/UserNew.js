@@ -31,7 +31,7 @@ const handleSubmit = async e =>{
         // set the user in Apps state to be the decoded token
         setCurrentUser(decoded)
         // got to user profile page
-        navigate("/user:id")
+        navigate("users/:id")
 
     }catch(err){
         console.warn(err)
@@ -45,7 +45,7 @@ const handleSubmit = async e =>{
 
 // render a navigate component if user is already logged in 
     if (currentUser){
-        return <Navigate to = "user/:id" />
+        return <Navigate to = "users/:id" />
     }
     return(
         <div>
