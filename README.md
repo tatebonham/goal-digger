@@ -9,16 +9,19 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 ## Wireframe
 
 - Landing page 1 - Bucket list options
-  ![Landing Page](public/Landing-page.png)
 
+![wireframe](./Goal-Digger-Wireframe/Landing-page.png)
 - Landing page 2 - more options
-  ![Landing Page 2](public/Landing-page-2.png)
 
+![wireframe](./Goal-Digger-Wireframe/Landing-page-2.png)
 - Profile View - view your basic profile information and your lists
-  ![Profile View](public/Profile-view.png)
 
+![wireframe](./Goal-Digger-Wireframe/Profile-view.png)
 - Goals View - view your saved goals and lists
-  ![Goals View](public/Goals-View.png)
+
+![wireframe](./Goal-Digger-Wireframe/Goals-View.png)
+
+
 
 ## ERD
 
