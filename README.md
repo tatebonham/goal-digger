@@ -39,24 +39,20 @@ A one stop shop for all your bucket list ideas! Plan your future goals and keep 
 
 | HTTP METHOD (_Verb_) | URL (_Nouns_) | CRUD | Response                                                   | Notes |
 | -------------------- | ------------- | ---- | ---------------------------------------------------------- | ----- |
-| GET                  | /users/new    | R    | a form for creating a new user                             |       |
 | POST                 | /users        | C    | create new user                                            |       |
 | GET                  | /users/:id    | R    | show user's profile including their goal lists             |       |
 | PUT                  | /users/:id    | U    | edit the user's profile                                    |       |
-| GET                  | /users/login  | R    | show a login form                                          |       |
 | POST                 | /users/login  | C    | accept a payload of form data and use it to login the user |       |
-| GET                  | /users/logout | R    | logout a user by clearing the stored cookie                |       |
 
 ### Bucketlist Goals
 
-| HTTP METHOD (_Verb_) | URL (_Nouns_)             | CRUD | Response                                       | Notes |
-| -------------------- | ------------------------- | ---- | ---------------------------------------------- | ----- | --------------- |
-| POST                 | /goals/:goalId/inprogress | C    | add goal to user's in progress bucketlist      |       |
-| DELETE               | /goals/:goalId/inprogress | D    | remove goal from user's in progress bucketlist |       |
-| POST                 | /goals/:goalId/completed  | C    | add goal to user's completed bucketlist        |       |
-| DELETE               | /goals/:goalId/completed  | D    | remove goal from user's completed bucketlist   |       |
-| POST                 | /goals                    | U    | create a new goal                              |       |
-| PUT                  | /goals/:goalId            | U    | edit a goal                                    |       | ## User Stories |
+| HTTP METHOD (_Verb_) | URL (_Nouns_)  | CRUD | Response                                       | Notes |
+| -------------------- | -------------- | ---- | ---------------------------------------------- | ----- |
+| DELETE               | /goals/:goalId | D    | remove goal from user's in progress bucketlist |       |
+| POST                 | /goals         | C    | create a new goal                              |       |
+| PUT                  | /goals/:goalId | U    | edit a goal                                    |       |
+
+## User Stories
 
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
