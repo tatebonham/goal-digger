@@ -6,8 +6,7 @@ export default function GoalNew(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: '',
-        completed: ''
+        imageUrl: ''
     })
     const [errorMessage, setErrorMessage] = useState('')
 

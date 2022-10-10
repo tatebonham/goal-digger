@@ -25,18 +25,11 @@ export default function Home(){
         getGoals()
     }, [])
 
-    const goalLink = goal.map(goal => {
-        return(
-            <div key={goal._id}>
-                <Link to={`/goal/${goal._id}`}>{goal.content}</Link>
-            </div>
-        )
-    })
+
     return(
         <div>
             <h1>Welcome to your bucket list</h1>
             <h2>Most recent goals</h2>
-            {goalLink}
 
             <p>{errorMessage}</p>
         </div>
