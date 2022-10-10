@@ -1,7 +1,10 @@
 import { useState } from "react"
 import axios from "axios"
+import { Navigate, useNavigate } from "react-router-dom"
 
 export default function ProfileEdit({currentUser, setCurrentUser}){
+    const navigate =useNavigate()
+    
     const [name, setName] =useState(" ")
     const [email, setEmail] = useState(" ")
     const [password,setPassword] = useState (" ")
@@ -14,7 +17,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                 email,
                 password
             }
-            const response = await axios.update(`${process.env.REACT_APP_SERVER_URL}api-v1/users/:id/edit`, reqBody)
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}api-v1/users/${id}/edit`, reqBody)
             
             const { token } = response.data
             localStorage.setItem("jwt", token)
@@ -23,7 +26,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
             // set the user in Apps state to be the decoded token
             setCurrentUser(decoded)
             // got to user profile page
-            navigate("users/:id")
+            navigate(`users/${id}`)
 
         }catch(err){
             if(err.response){
@@ -43,7 +46,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         id = "name"
                         placeholder = "Enter your new user name"
                         onChange = {e=>setName(e.target.value)}
-                        value = {name}
+                        value = {currentUser.name}
                     />
                 <label htmlFor="email">Update Email:</label>
                     <input
@@ -51,7 +54,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         id = "email"
                         placeholder = "Enter your new email"
                         onChange = {e=> setEmail(e.target.value)}
-                        value = {email}
+                        value = {currentUser.email}
                         />
                 <label htmlFor="password"> Update password:</label>
                     <input 
@@ -59,7 +62,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         id = "email"
                         placeholder="Enter your new password"
                         onChange ={ e=> setPassword(e.target.value)}
-                        value={password}
+                        value={currentUser.password}
                         />
                 <button type="submit"> Update Profile </button>
             </form>
