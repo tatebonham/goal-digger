@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
-import { Navigate }  from "react-router-dom"
+import { Navigate, useNavigate }  from "react-router-dom"
 
 
 export default function UserNew({currentUser, setCurrentUser}){
@@ -10,6 +10,7 @@ const [name, setName] =useState(" ")
 const [email, setEmail]= useState(" ")
 const [password, setPassword] = useState (" ")
 const [msg, setMsg] = useState(" ")
+const navigate = useNavigate()
 
 // handle form submit
 const handleSubmit = async e =>{
@@ -21,7 +22,7 @@ const handleSubmit = async e =>{
             email,
             password
         }
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api-v1/users/new`, reqBody)
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api-v1/users/register`, reqBody)
         // save the token in local storage
         const { token } = response.data
         localStorage.setItem("jwt", token)
@@ -29,6 +30,8 @@ const handleSubmit = async e =>{
         const decoded = jwt_decode(token)
         // set the user in Apps state to be the decoded token
         setCurrentUser(decoded)
+        // got to user profile page
+        navigate("users/:id")
 
     }catch(err){
         console.warn(err)
@@ -42,7 +45,7 @@ const handleSubmit = async e =>{
 
 // render a navigate component if user is already logged in 
     if (currentUser){
-        return <Navigate to = "users/profile" />
+        return <Navigate to = "users/:id" />
     }
     return(
         <div>
