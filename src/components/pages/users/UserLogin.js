@@ -1,13 +1,14 @@
 import { useState } from "react"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
-import { Navigate } from "react-router-dom"
+import { useNavigate, Navigate } from "react-router-dom"
 
-export default function UserLogin( {curentUser, setCurrentUser}){
+export default function UserLogin( {currentUser, setCurrentUser}){
     // states for the controlled form
     const [email, setEmail] = useState(" ")
     const [password, setPassword] =useState(" ")
     const [msg, setMsg] = useState(" ")
+    const navigate = useNavigate()
 
     // submit login form event handler
     const handleSubmit = async e =>{
@@ -34,7 +35,7 @@ export default function UserLogin( {curentUser, setCurrentUser}){
         }
     }
     // conditionally render a navigate component
-    if (curentUser){
+    if (currentUser){
         return <Navigate to="users/:id" />
     }
 
