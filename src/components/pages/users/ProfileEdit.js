@@ -53,6 +53,14 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         onChange = {e=> setEmail(e.target.value)}
                         value = {email}
                         />
+                <label htmlFor="password"> Update password:</label>
+                    <input 
+                        type= "text"
+                        id = "email"
+                        placeholder="Enter your new password"
+                        onChange ={ e=> setPassword(e.target.value)}
+                        value={password}
+                        />
                 <button type="submit"> Update Profile </button>
             </form>
         </div>
