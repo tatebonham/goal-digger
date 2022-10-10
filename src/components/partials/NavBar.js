@@ -15,7 +15,7 @@ export default function NavBar({currentUser, setCurrentUser}){
 
     const loggedIn = (
         <>
-        <Link to = "/user/:id"> Your Profile </Link> |
+        <Link to = "/user/profile"> Your Profile </Link> |
         <Link to ="/"> <span onClick={handleLogout}>Log Out </span></Link> |
         </>
     )
@@ -31,7 +31,7 @@ export default function NavBar({currentUser, setCurrentUser}){
     return(
         <nav>
             <div>
-                <Link to ="/"> Home </Link>
+                <Link to ="/"> Home </Link> |
                 {currentUser ? loggedIn : loggedOut}
                 <Link to ="/goal/new"> Create New Goal</Link>
             </div>

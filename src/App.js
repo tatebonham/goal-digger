@@ -3,7 +3,6 @@ import './App.css';
 import { useState , useEffect} from 'react';
 import jwt_decode from "jwt-decode"
 
-
 import Home from './components/pages/Home'
 import GoalEdit from './components/pages/goals/GoalEdit'
 import GoalNew from './components/pages/goals/GoalNew'
@@ -30,8 +29,6 @@ function App() {
     }, []) // happen only once
     console.log(currentUser)
 
-
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -48,12 +45,12 @@ function App() {
            currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
           
           {/* if user is logged in then sends to profile if not then directs to login page */}
-          <Route path='/user/:id' 
+          <Route path='/user/profile' 
             element={ currentUser ? <Profile 
             currentUser={currentUser} setCurrentUser={setCurrentUser} /> 
             : <Navigate to = "/user/login"/> } /> 
 
-          <Route path='/user/:id/edit' element={<ProfileEdit 
+          <Route path='/user/edit' element={<ProfileEdit 
           currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
           <Route path='/goal/new' element={<GoalNew 

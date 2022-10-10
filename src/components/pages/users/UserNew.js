@@ -56,28 +56,31 @@ const handleSubmit = async e =>{
             {/* new user form */}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name"> Name: </label>
-                    <input required
+                    <input 
                         type = "text"
                         id = "name"
                         placeholder = "Enter your user name"
                         onChange = {e=>setName(e.target.value)}
                         value = {name}
+                        required
                     />
                 <label htmlFor="email"> Email:</label>
-                    <input required
+                    <input 
                         type = "text"
                         id = "email"
                         placeholder = "Enter your email"
                         onChange = {e=> setEmail(e.target.value)}
                         value = {email}
+                        required
                         />
                 <label htmlFor="password"> Password:</label>
-                    <input required
+                    <input 
                         type = "text"
                         id = "password"
                         placeholder = "Choose your password"
                         onChange = {e=> setPassword(e.target.value)}
                         value = {password}
+                        required
                     />
                 <button type="submit"> Register </button>
             </form>

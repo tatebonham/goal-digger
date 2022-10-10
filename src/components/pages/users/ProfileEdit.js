@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import jwt_decode from "jwt-decode"
 
 export default function ProfileEdit({currentUser, setCurrentUser}){
@@ -27,7 +27,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
             // set the user in Apps state to be the decoded token
             setCurrentUser(decoded)
             // got to user profile page
-            // navigate(`users/${id}`)
+            navigate(`/`)
 
         }catch(err){
             if(err.response){

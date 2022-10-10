@@ -6,18 +6,27 @@ export default function GoalNew(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: '',
-        completed: ''
+        imageUrl: ''
     })
     const [errorMessage, setErrorMessage] = useState('')
 
     const navigate = useNavigate()
 
     // submit event handler
-    const handleSubmit = async e => {
+    const handleSubmit = async e => {   
+        e.preventDefault()
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/goal`, form)
-            navigate('/goal/new')
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals`, form, options)
+            console.log(response.data)
+            console.log(form)
+            navigate('/')
         } catch (err) {
             console.warn(err)
             if (err.response) {
@@ -49,16 +58,6 @@ export default function GoalNew(){
                         value={form.imageUrl}
                         placeholder='Add direct URL'
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
-                        />
-                </div>
-                <div>
-                    <label htmlFor='completed'>Complete Goals</label>
-                    <input 
-                        type='text'
-                        id='completed'
-                        value={form.completed}
-                        placeholder='goal completed?'
-                        onChange={e => setForm ({ ...form, completed: e.target.value})}
                         />
                 </div>
 

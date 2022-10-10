@@ -12,13 +12,14 @@ export default function UserLogin( {currentUser, setCurrentUser}){
 
     // submit login form event handler
     const handleSubmit = async e =>{
+        e.preventDefault()
         try{
         // post form to backend
             const reqBody ={
                 email,
                 password
             }
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api-v1/users/login`, reqBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, reqBody)
 
             // save the token in local storage
             const { token } = response.data
@@ -27,6 +28,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
             const decoded= jwt_decode(token)
             // set the user in app state
             setCurrentUser(decoded)
+            navigate('/user/profile')
         }catch(err){
             console.warn(err)
             if(err.response === 400 ){
@@ -36,7 +38,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
     }
     // conditionally render a navigate component
     if (currentUser){
-        return <Navigate to="users/:id" />
+        return <Navigate to="/user/:id" />
     }
 
 
