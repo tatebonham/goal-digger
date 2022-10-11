@@ -14,7 +14,7 @@ nav {
   position: sticky;
   border-radius: 5px;
   border: 10px solid transparent;
-  border-image: url(/Border.png) 40% round;
+  border-image: url() 40% round;
   background-color: #d3cae6;
   padding-top: 20px;
   padding-right: 0px;
