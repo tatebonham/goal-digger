@@ -1,48 +1,44 @@
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import jwt_decode from "jwt-decode"
+
 
 export default function ProfileEdit({currentUser, setCurrentUser}){
     const navigate =useNavigate()
+
+    const [errorMessage, setErrorMessage] = useState('')
     
-    const [name, setName] =useState(" ")
-    const [email, setEmail] = useState(" ")
-    const [password,setPassword] = useState (" ")
+    const [form, setForm] = useState({
+        name: " ",
+        email: " ",
+        password: " "
+    })
 
     const handleSubmit = async e =>{
         e.preventdefault()
         try{
-            const reqBody ={
-                name,
-                email,
-                password
-            }
             const token = localStorage.getItem('jwt')
             const options = {
                 headers: {
                     'Authorization': token
                 }
             }
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/edit`, reqBody,options)
-            // const { token } = response.data
-            // localStorage.setItem("jwt", token)
-            // // decode the token
-            // const decoded = jwt_decode(token)
-            // // set the user in Apps state to be the decoded token
-            // setCurrentUser(decoded)
-            
+            e.preventdefault()
+            // post form to backend
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/edit`, form, options)
             // got to user profile page
             navigate(`/`)
 
         }catch(err){
             if(err.response){
               if(err.response.status===400){
-                setEmail.msg(err.response.data.mag)
+                setErrorMessage(err.response.data.message)
               } 
             }
         }
+       
     }
+     console.log(currentUser)
     return(
         <div>
             <h1> Edit Profile Information </h1>
@@ -52,24 +48,24 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         type = "text"
                         id = "name"
                         placeholder = "Enter your new user name"
-                        onChange = {e=>setName(e.target.value)}
-                        value = {currentUser.name}
+                        onChange = { e => setForm({...form, name:e.target.value})}
+                        value = {form.name}
                     />
                 <label htmlFor="email">Update Email:</label>
                     <input
                         type = "text"
                         id = "email"
                         placeholder = "Enter your new email"
-                        onChange = {e=> setEmail(e.target.value)}
-                        value = {currentUser.email}
+                        onChange ={ e => setForm({...form, email:e.target.value})}
+                        value = {form.email}
                         />
                 <label htmlFor="password"> Update password:</label>
                     <input 
                         type= "text"
                         id = "email"
                         placeholder="Enter your new password"
-                        onChange ={ e=> setPassword(e.target.value)}
-                        value={currentUser.password}
+                        onChange ={ e => setForm({...form, password:e.target.value})}
+                        value={form.password}
                         />
                 <button type="submit"> Update Profile </button>
             </form>
