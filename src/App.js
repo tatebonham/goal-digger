@@ -27,7 +27,7 @@ function App() {
       }
       
     }, []) // happen only once
-    console.log(currentUser)
+    // console.log(currentUser)
 
   return (
     <div className="App">
