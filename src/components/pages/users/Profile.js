@@ -1,6 +1,7 @@
 import { Link} from 'react-router-dom' 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import GoalCard from '../../partials/GoalCard'
 
 export default function Profile(){
 
@@ -44,7 +45,8 @@ export default function Profile(){
             {/* create new goal */}
             <Link to="/goals/GoalNew"> New Goals </Link> 
             {/* edit your profile */}
-            <Link to = "/users/profileEdit"> Edit your profile</Link>
+            <Link to = "/users/profileEdit"> Edit yor profile</Link>
+            <GoalCard />
             {goalLink}
     
         </div>

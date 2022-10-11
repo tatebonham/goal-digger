@@ -45,6 +45,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
     return(
         <div>
             <h1> Login to access your Bucket List </h1>
+            {msg}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email"> Email:</label>
                     <input
