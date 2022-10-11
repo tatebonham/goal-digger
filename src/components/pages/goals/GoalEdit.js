@@ -9,6 +9,14 @@ export default function GoalEdit(){
         content: '',
         imageUrl: ''
     })
+    // const [content, setContent] = useState('')
+
+    const token = localStorage.getItem('jwt')
+    const options = {
+        headers: {
+            'Authorization': token
+        }
+    }
 
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -18,24 +26,34 @@ export default function GoalEdit(){
     useEffect(() => {
         const getGoal = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goal/${id}`)
-            // console.log('TACO',response.data)
-            setForm(response.data)
-             } catch (err) {
-                console.warn(err)
-                if(err.response) {
-                    setErrorMessage(err.response.data.message)
-                }
-             }
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
+            setForm({content: response.data.goals[0].content, imageUrl: response.data.goals[0].imageUrl})
+            // setContent(response.data.goals[0].content)
+            // console.log(content)
+            console.log(response.data.goals[0].content)
+        } catch (err) {
+            console.warn(err)
+            if(err.response) {
+                setErrorMessage(err.response.data.message)
+            }
         }
-        getGoal()
-    }, [])
+    }
+    getGoal()
+}, [])
+    // console.log(content)
+    console.log(form)
 
     const handleSubmit = async e => {
+        e.preventDefault()
         try {
-            e.preventDefault()
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/goal/${id}`, form)
-            navigate(`/goal/${id}`)
+            // const token = localStorage.getItem('jwt')
+            // const options = {
+            //     headers: {
+            //         'Authorization': token
+            //     }
+            // }
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, form, options)
+            navigate(`/user/profile`)
         } catch(err) {
             console.warn(err)
             if(err.response){
@@ -69,7 +87,7 @@ export default function GoalEdit(){
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
                         />
                 </div>
-                <div>
+                {/* <div>
                     <label htmlFor='completed'>Complete Goals</label>
                     <input 
                         type='text'
@@ -78,9 +96,9 @@ export default function GoalEdit(){
                         placeholder='goal completed?'
                         onChange={e => setForm ({ ...form, completed: e.target.value})}
                         />
-                </div>
+                </div> */}
 
-                <button type='submit'>Edit this goal</button>
+                <button type='submit'>Submit edits</button>
 
             </form>
         </div>

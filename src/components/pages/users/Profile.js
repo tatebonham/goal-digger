@@ -32,7 +32,7 @@ export default function Profile(){
     const goalLink = goals.map(goal => {
         return(
             <div key={goal._id}>
-                <Link to={`/goal/${goal._id}`}>{goal.content}</Link>
+                <Link to={`/goal/${goal._id}/edit`}>{goal.content}</Link>
             </div>
         )
     })
@@ -42,9 +42,10 @@ export default function Profile(){
             <h1>Welcome to your profile</h1>
             {errorMessage}
             {/* create new goal */}
-            <Link to="/goals/GoalNew"> New Goals </Link> 
+            <Link to="/goal/new"> New Goals </Link> 
             {/* edit your profile */}
-            <Link to = "/users/profileEdit"> Edit yor profile</Link>
+            <Link to = "/user/edit"> Edit yor profile</Link>
+            <GoalCard />
             {goalLink}
     
         </div>
