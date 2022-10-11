@@ -18,7 +18,7 @@ export default function GoalEdit(){
     useEffect(() => {
         const getGoal = async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goal/${id}`)
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/goal/${id}`)
             // console.log('TACO',response.data)
             setForm(response.data)
              } catch (err) {
