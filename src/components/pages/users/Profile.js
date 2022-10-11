@@ -43,9 +43,9 @@ export default function Profile(){
             <h1>Welcome to your profile</h1>
             {errorMessage}
             {/* create new goal */}
-            <Link to="/goals/GoalNew"> New Goals </Link> 
+            <Link to="/goals/new"> New Goals </Link> 
             {/* edit your profile */}
-            <Link to = "/users/profileEdit"> Edit yor profile</Link>
+            <Link to = "/users/edit"> Edit yor profile</Link>
             <GoalCard />
             {goalLink}
     
