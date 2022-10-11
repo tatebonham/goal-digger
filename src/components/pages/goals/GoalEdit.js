@@ -17,25 +17,31 @@ export default function GoalEdit(){
 
     useEffect(() => {
         const getGoal = async () => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/goal/${id}`)
-            // console.log('TACO',response.data)
-            setForm(response.data)
+            try {
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`)
+            setForm(response.data.goals)
              } catch (err) {
-                console.warn(err)
-                if(err.response) {
-                    setErrorMessage(err.response.data.message)
-                }
-             }
+            console.warn(err)
+            if(err.response) {
+                setErrorMessage(err.response.data.message)
+            }
         }
-        getGoal()
-    }, [])
+    }
+    getGoal()
+}, [])
+    console.log(form)
 
     const handleSubmit = async e => {
+        e.preventDefault()
         try {
-            e.preventDefault()
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/goal/${id}`, form)
-            navigate(`/goal/${id}`)
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goal/${id}`, form, options)
+            navigate(`/user/profile`)
         } catch(err) {
             console.warn(err)
             if(err.response){

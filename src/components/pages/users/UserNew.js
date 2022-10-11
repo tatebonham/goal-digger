@@ -22,7 +22,7 @@ const handleSubmit = async e =>{
             email,
             password
         }
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}api-v1/users/register`, reqBody)
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users`, reqBody)
         // save the token in local storage
         const { token } = response.data
         localStorage.setItem("jwt", token)
@@ -31,7 +31,7 @@ const handleSubmit = async e =>{
         // set the user in Apps state to be the decoded token
         setCurrentUser(decoded)
         // got to user profile page
-        navigate("users/:id")
+        navigate("/")
 
     }catch(err){
         console.warn(err)
@@ -56,28 +56,31 @@ const handleSubmit = async e =>{
             {/* new user form */}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name"> Name: </label>
-                    <input
+                    <input 
                         type = "text"
                         id = "name"
                         placeholder = "Enter your user name"
                         onChange = {e=>setName(e.target.value)}
                         value = {name}
+                        required
                     />
                 <label htmlFor="email"> Email:</label>
-                    <input
+                    <input 
                         type = "text"
                         id = "email"
                         placeholder = "Enter your email"
                         onChange = {e=> setEmail(e.target.value)}
                         value = {email}
+                        required
                         />
                 <label htmlFor="password"> Password:</label>
-                    <input
+                    <input 
                         type = "text"
                         id = "password"
                         placeholder = "Choose your password"
                         onChange = {e=> setPassword(e.target.value)}
                         value = {password}
+                        required
                     />
                 <button type="submit"> Register </button>
             </form>

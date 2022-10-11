@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 export default function Home(){
@@ -12,9 +11,9 @@ export default function Home(){
     useEffect(() => {
         const getGoals = async () => {
             try{
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goal`)
+                // const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goal`)
                 // console.log(response.data)
-                setGoal(response.data)
+                // setGoal(response.data)
             } catch(err) {
                 console.warn(err)
                 if(err.response) {

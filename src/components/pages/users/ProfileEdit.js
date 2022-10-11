@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import jwt_decode from "jwt-decode"
 
 export default function ProfileEdit({currentUser, setCurrentUser}){
     const navigate =useNavigate()
@@ -17,16 +18,22 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                 email,
                 password
             }
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}api-v1/users/${id}/edit`, reqBody)
+            const token = localStorage.getItem('jwt')
+            const options = {
+                headers: {
+                    'Authorization': token
+                }
+            }
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/edit`, reqBody,options)
+            // const { token } = response.data
+            // localStorage.setItem("jwt", token)
+            // // decode the token
+            // const decoded = jwt_decode(token)
+            // // set the user in Apps state to be the decoded token
+            // setCurrentUser(decoded)
             
-            const { token } = response.data
-            localStorage.setItem("jwt", token)
-            // decode the token
-            const decoded = jwt_decode(token)
-            // set the user in Apps state to be the decoded token
-            setCurrentUser(decoded)
             // got to user profile page
-            navigate(`users/${id}`)
+            navigate(`/`)
 
         }catch(err){
             if(err.response){
