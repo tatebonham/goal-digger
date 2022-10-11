@@ -7,8 +7,7 @@ export default function GoalEdit(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: '',
-        completed: false
+        imageUrl: ''
     })
 
     const [errorMessage, setErrorMessage] = useState('')
