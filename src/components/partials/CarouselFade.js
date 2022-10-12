@@ -64,6 +64,13 @@ function CarouselFade() {
         </Carousel.Caption>
       </Carousel.Item>
 
+      <Carousel.Item>
+        <Carousel.Caption>
+          <h3>Holiday Village</h3>
+          <p>Visit a European Holiday Village</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
 
     </Carousel>
   );
