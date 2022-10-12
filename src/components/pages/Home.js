@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 import CarouselFade from "../partials/CarouselFade"
@@ -25,6 +26,7 @@ export default function Home(){
         getGoals()
     }, [])
 
+   
     return(
     <div>
         <h1>Welcome to your bucket list</h1>

@@ -38,7 +38,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
     }
     // conditionally render a navigate component
     if (currentUser){
-        return <Navigate to="/user/:id" />
+        return <Navigate to="/user/profile" />
     }
 
 
@@ -55,7 +55,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
                         onChange ={e=> setEmail(e.target.value)}
                         value={email}
                     />
-                <label htmlFor="password">Password</label> 
+                <label htmlFor="password">Password:</label> 
                     <input
                         type = "text"
                         id = "password"
