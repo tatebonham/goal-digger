@@ -7,7 +7,7 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="img-thumbnail style"
+          className="img-thumbnail width={150} "
           src="images/the-best-christmas-markets-of-europe.jpeg"
           alt="Holiday Village"
         />
