@@ -4,15 +4,18 @@ import { useEffect, useState } from 'react'
 export default function Home(){
     // goal from the backend
 
+    const [api, setApi] = useState('')
+
     const [errorMessage, setErrorMessage] = useState('')
 
     console.log('server url', process.env.REACT_APP_SERVER_URL)
+
     useEffect(() => {
-        const getGoals = async () => {
+        const getApi = async () => {
             try{
-                // const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/goal`)
-                // console.log(response.data)
-                // setGoal(response.data)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/bucketlist`)
+                console.log(response.data)
+                setApi(response.data.item)
             } catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -20,15 +23,15 @@ export default function Home(){
                 }
             }
         }
-        getGoals()
+        getApi()
     }, [])
 
-   
     return(
         <div>
-            <h1>Welcome to your bucket list</h1>
+            <h1>Welcome to Goal Digger</h1>
             <h2>Most recent goals</h2>
 
+            <h2>{api}</h2>
             <p>{errorMessage}</p>
         </div>
     )

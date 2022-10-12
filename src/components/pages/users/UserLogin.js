@@ -5,9 +5,9 @@ import { useNavigate, Navigate } from "react-router-dom"
 
 export default function UserLogin( {currentUser, setCurrentUser}){
     // states for the controlled form
-    const [email, setEmail] = useState(" ")
-    const [password, setPassword] =useState(" ")
-    const [msg, setMsg] = useState(" ")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] =useState("")
+    const [msg, setMsg] = useState("")
     const navigate = useNavigate()
 
     // submit login form event handler
