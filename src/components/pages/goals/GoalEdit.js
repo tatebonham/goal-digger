@@ -28,12 +28,15 @@ export default function GoalEdit(){
         try {
             console.log(id)
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
-            setForm({content: response.data.goals[0].content, imageUrl: response.data.goals[0].img_url})
+            const goal = response.data.goals.filter(goal => goal._id === id)
+            console.log(goal)
+            console.log(goal[0].content)
+            setForm({content: goal[0].content, imageUrl: goal[0].img_url})
             // setContent(response.data.goals)
-            console.log(response.data)
+            // console.log(response.data)
         
-            console.log(response.data.goals[0].content)
-            console.log(response.data.goals[0].img_url)
+            // console.log(response.data.goals[0].content)
+            // console.log(response.data.goals[0].img_url)
         } catch (err) {
             console.warn(err)
             if(err.response) {
