@@ -1,6 +1,5 @@
-import userEvent from "@testing-library/user-event"
 import { Link } from "react-router-dom"
-import jwt_decode from "jwt-decode"
+
 
 export default function NavBar({currentUser, setCurrentUser}){
     // event handler to log the user out when needed

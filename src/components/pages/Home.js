@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export default function Home(){
     // goal from the backend
-    const [goal, setGoal] = useState([])
 
     const [errorMessage, setErrorMessage] = useState('')
 
