@@ -30,8 +30,7 @@ nav {
 a {
   color: white;
   margin: 20px;
-  text-decoration: none;
-  text-shadow: 1px 1px 2px black;
+  
 }
 
 input[type=text], select {
