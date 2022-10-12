@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { useState , useEffect} from 'react';
 import jwt_decode from "jwt-decode"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/pages/Home'
 import GoalEdit from './components/pages/goals/GoalEdit'

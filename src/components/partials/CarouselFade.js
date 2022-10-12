@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
+import Image from 'react-bootstrap/Image'
 
 function CarouselFade() {
   return (
@@ -6,8 +7,8 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="images/Christmas-Markets-Europe.webp"
+          className="img-thumbnail width={150} "
+          src="images/the-best-christmas-markets-of-europe.jpeg"
           alt="Holiday Village"
         />
         <Carousel.Caption>
@@ -18,7 +19,7 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="img-thumbnail"
           src="images/Hot-air-balloons-Cappadocia-Turkey.jpeg"
           alt="Hot Air balloons over Cappadocia Turkey"
         />
@@ -30,7 +31,7 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="img-thumbnail"
           src="images/Surfing-Hawaii-bucket-list-experience.webp"
           alt="Person surfing in the ocean"
         />
@@ -42,7 +43,7 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="img-thumbnail"
           src="images/Swimming-turtle.webp"
           alt="person swimmin with a sea turtle"
         />
@@ -54,7 +55,7 @@ function CarouselFade() {
 
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="img-thumbnail"
           src="images/Visiting-50-states.webp"
           alt="Map of the United States"
         />
@@ -63,15 +64,6 @@ function CarouselFade() {
           <p>Visit all 50 US states </p>
         </Carousel.Caption>
       </Carousel.Item>
-
-      <Carousel.Item>
-        <Carousel.Caption>
-          <h3>Holiday Village</h3>
-          <p>Visit a European Holiday Village</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-
-
     </Carousel>
   );
 }
