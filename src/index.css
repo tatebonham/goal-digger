@@ -28,7 +28,7 @@ a, h1, h2, p {
 }
 
 input[type=text], select {
-  width: 95%;
+  width: 98%;
   padding: 12px 20px;
   margin: 8px 10px 10px 10px;
   display: inline-block;
