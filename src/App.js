@@ -55,8 +55,9 @@ function App() {
           <Route path='/user/edit' element={<ProfileEdit 
           currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
-          <Route path='/goal/new' element={<GoalNew 
-          currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path='/goal/new' element={ currentUser ? <GoalNew 
+          currentUser={currentUser} setCurrentUser={setCurrentUser} /> : <UserNew
+          currentUser={currentUser} setCurrentUser={setCurrentUser} /> } />
 
 
           <Route path='/goal/:id/edit' element={<GoalEdit 
