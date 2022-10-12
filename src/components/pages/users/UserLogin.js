@@ -47,7 +47,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
             <h1> Login to access your Bucket List </h1>
             {msg}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email"> Email:</label>
+                <label htmlFor="email"><h2>Email:</h2></label>
                     <input
                         type = "text"
                         id = "email"
@@ -55,7 +55,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
                         onChange ={e=> setEmail(e.target.value)}
                         value={email}
                     />
-                <label htmlFor="password">Password:</label> 
+                <label htmlFor="password"><h2>Password:</h2></label> 
                     <input
                         type = "text"
                         id = "password"
