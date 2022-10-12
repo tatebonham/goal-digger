@@ -44,7 +44,7 @@ export default function Profile(){
             {/* create new goal */}
             <Link to="/goals/GoalNew"> New Goals </Link> 
             {/* edit your profile */}
-            <Link to = "/users/profileEdit"> Edit yor profile</Link>
+            <Link to = "/users/profileEdit"> Edit your profile</Link>
             {goalLink}
     
         </div>
