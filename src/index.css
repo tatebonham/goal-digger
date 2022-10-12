@@ -21,10 +21,15 @@ nav {
   padding-left: 0px;
   color: white;
 }
-a, h1, h2, p {
+  h1, h2, h3, p {
   color: white;
   margin: 20px;
-  text-decoration: none;
+  text-shadow: 1px 1px 2px black;
+}
+a {
+  color: white !important;
+  margin: 20px;
+  text-decoration: none !important; 
 }
 
 input[type=text], select {
@@ -49,4 +54,9 @@ button[type=submit] {
 }
 input[type=id] {
   color: white;
+}
+
+img {
+  max-height: 500px;
+  max-width: 500px;
 }
