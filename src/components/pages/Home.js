@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+import CarouselFade from "../partials/CarouselFade"
+
+
 export default function Home(){
     // goal from the backend
 
@@ -27,12 +30,13 @@ export default function Home(){
     }, [])
 
     return(
-        <div>
-            <h1>Welcome to Goal Digger</h1>
-            <h2>Most recent goals</h2>
-
-            <h2>{api}</h2>
-            <p>{errorMessage}</p>
-        </div>
+    <div>
+        <h1>Welcome to your bucket list</h1>
+        <h2>Most recent goals</h2>
+        
+        <h2>{api}</h2>
+        <p>{errorMessage}</p>
+        <CarouselFade />
+    </div>
     )
 }
