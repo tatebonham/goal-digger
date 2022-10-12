@@ -7,7 +7,7 @@ function CarouselFade() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="images/Christmas-Markets-Europe.webp,"
+          src="images/Christmas-Markets-Europe.webp"
           alt="Holiday Village"
         />
         <Carousel.Caption>
