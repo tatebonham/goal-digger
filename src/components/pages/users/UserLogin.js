@@ -15,10 +15,11 @@ export default function UserLogin( {currentUser, setCurrentUser}){
         e.preventDefault()
         try{
         // post form to backend
-            const reqBody ={
+            const reqBody = {
                 email,
                 password
             }
+            console.log(reqBody)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, reqBody)
 
             // save the token in local storage
