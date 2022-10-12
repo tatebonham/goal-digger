@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
-import { Navigate, useNavigate }  from "react-router-dom"
+import { Navigate, useNavigate, Link }  from "react-router-dom"
 
 
 export default function UserNew({currentUser, setCurrentUser}){
@@ -84,6 +84,11 @@ const handleSubmit = async e =>{
                     />
                 <button type="submit"> Register </button>
             </form>
+
+            <div>
+                <p>Already a member?<Link to="/user/login"><u>Login here</u></Link></p>
+            </div>
+
         </div>
     )
 }
