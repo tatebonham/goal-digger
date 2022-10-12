@@ -5,9 +5,9 @@ import { useNavigate, Navigate } from "react-router-dom"
 
 export default function UserLogin( {currentUser, setCurrentUser}){
     // states for the controlled form
-    const [email, setEmail] = useState(" ")
-    const [password, setPassword] =useState(" ")
-    const [msg, setMsg] = useState(" ")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] =useState("")
+    const [msg, setMsg] = useState("")
     const navigate = useNavigate()
 
     // submit login form event handler
@@ -15,10 +15,11 @@ export default function UserLogin( {currentUser, setCurrentUser}){
         e.preventDefault()
         try{
         // post form to backend
-            const reqBody ={
+            const reqBody = {
                 email,
                 password
             }
+            console.log(reqBody)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, reqBody)
 
             // save the token in local storage
