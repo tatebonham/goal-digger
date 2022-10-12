@@ -55,7 +55,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
                         onChange ={e=> setEmail(e.target.value)}
                         value={email}
                     />
-                <label htmlFor="password">Password</label> 
+                <label htmlFor="password">Password:</label> 
                     <input
                         type = "text"
                         id = "password"

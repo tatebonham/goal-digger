@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 export default function Home(){
@@ -22,7 +23,7 @@ export default function Home(){
         getGoals()
     }, [])
 
-
+   
     return(
         <div>
             <h1>Welcome to your bucket list</h1>
