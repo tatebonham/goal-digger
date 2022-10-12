@@ -12,6 +12,7 @@ import UserNew from './components/pages/users/UserNew'
 import UserLogin from './components/pages/users/UserLogin'
 import NavBar from './components/partials/NavBar'
 
+
 function App() {
 
   const [currentUser,setCurrentUser] =useState (null)

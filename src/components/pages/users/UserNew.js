@@ -6,9 +6,9 @@ import { Navigate, useNavigate }  from "react-router-dom"
 
 export default function UserNew({currentUser, setCurrentUser}){
 // state for the controlled form
-const [name, setName] =useState("Choose a user name")
-const [email, setEmail]= useState("Enter your email ")
-const [password, setPassword] = useState ("Enter a password ")
+const [name, setName] =useState("")
+const [email, setEmail]= useState("")
+const [password, setPassword] = useState ("")
 const [msg, setMsg] = useState(" ")
 const navigate = useNavigate()
 

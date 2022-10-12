@@ -69,5 +69,5 @@ function CarouselFade() {
   );
 }
 
-export default CarouselFadeExample;
+export default CarouselFade
 
