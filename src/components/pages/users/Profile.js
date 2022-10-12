@@ -34,6 +34,7 @@ export default function Profile(){
         return(
             <div key={goal._id}>
                 <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url}   />
+                <Link to={`/goal/${goal._id}/edit`} >Edit Goal</Link>
             </div>
         )
     })
