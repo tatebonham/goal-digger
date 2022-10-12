@@ -1,6 +1,7 @@
 import { Link} from 'react-router-dom' 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import GoalCard from '../../partials/GoalCard'
 
 export default function Profile(){
 
@@ -32,7 +33,7 @@ export default function Profile(){
     const goalLink = goals.map(goal => {
         return(
             <div key={goal._id}>
-                <Link to={`/goal/${goal._id}/edit`}>{goal.content}</Link>
+                <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url}   />
             </div>
         )
     })
