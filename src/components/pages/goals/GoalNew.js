@@ -26,7 +26,7 @@ export default function GoalNew(){
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals`, form, options)
             console.log(response.data)
             console.log(form)
-            navigate('/')
+            navigate('/user/profile')
         } catch (err) {
             console.warn(err)
             if (err.response) {
