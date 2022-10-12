@@ -55,7 +55,7 @@ const handleSubmit = async e =>{
 
             {/* new user form */}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name"> Name: </label>
+                <label htmlFor="name"> <h2>Name:</h2></label>
                     <input 
                         type = "text"
                         id = "name"
@@ -64,7 +64,7 @@ const handleSubmit = async e =>{
                         value = {name}
                         required
                     />
-                <label htmlFor="email"> Email:</label>
+                <label htmlFor="email"> <h2>Email:</h2></label>
                     <input 
                         type = "text"
                         id = "email"
@@ -73,7 +73,7 @@ const handleSubmit = async e =>{
                         value = {email}
                         required
                         />
-                <label htmlFor="password"> Password:</label>
+                <label htmlFor="password"> <h2>Password:</h2></label>
                     <input 
                         type = "text"
                         id = "password"

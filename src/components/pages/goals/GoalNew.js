@@ -41,7 +41,7 @@ export default function GoalNew(){
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='content'>Goal:</label>
+                    <label htmlFor='content'><h2>Goal:</h2></label>
                     <input 
                         type='text'
                         id='content'
@@ -51,7 +51,7 @@ export default function GoalNew(){
                         />
                 </div>
                 <div>
-                    <label htmlFor='imageUrl'>Image:</label>
+                    <label htmlFor='imageUrl'><h2>Image:</h2></label>
                     <input 
                         type='text'
                         id='imageUrl'
