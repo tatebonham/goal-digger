@@ -49,7 +49,7 @@ const handleSubmit = async e =>{
     }
     return(
         <div>
-           <h1> Sign up to create your Bucket List </h1>
+           <h1> Sign up to create a Bucket List </h1>
             {/* display msg if error occure */}
             <p> {msg}</p>
 
