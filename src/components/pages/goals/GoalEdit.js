@@ -17,7 +17,7 @@ export default function GoalEdit(){
             'Authorization': token
         }
     }
-
+    console.log(options)
     const [errorMessage, setErrorMessage] = useState('')
 
     const { id } = useParams()
@@ -26,11 +26,14 @@ export default function GoalEdit(){
     useEffect(() => {
         const getGoal = async () => {
         try {
+            console.log(id)
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
-            setForm({content: response.data.goals[0].content, imageUrl: response.data.goals[0].imageUrl})
-            // setContent(response.data.goals[0].content)
-            // console.log(content)
+            setForm({content: response.data.goals[0].content, imageUrl: response.data.goals[0].img_url})
+            // setContent(response.data.goals)
+            console.log(response.data)
+        
             console.log(response.data.goals[0].content)
+            console.log(response.data.goals[0].img_url)
         } catch (err) {
             console.warn(err)
             if(err.response) {
@@ -41,17 +44,12 @@ export default function GoalEdit(){
     getGoal()
 }, [])
     // console.log(content)
-    console.log(form)
+    // console.log(form)
 
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-            // const token = localStorage.getItem('jwt')
-            // const options = {
-            //     headers: {
-            //         'Authorization': token
-            //     }
-            // }
+
             const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, form, options)
             navigate(`/user/profile`)
         } catch(err) {
@@ -61,6 +59,22 @@ export default function GoalEdit(){
             }
         }
     }
+
+    const handleDelete = async e => {
+        e.preventDefault()
+        try {
+            console.log(options)
+            const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
+            navigate(`/user/profile`)
+        } catch(err) {
+            console.warn(err)
+            if(err.response){
+                setErrorMessage(err.response.data.message)
+            }
+        }
+    }
+
+
     return(
         <div>
             <h1>Edit Goals:</h1>
@@ -73,7 +87,7 @@ export default function GoalEdit(){
                         type='text'
                         id='content'
                         value={form.content}
-                        placeholder='Add your goal here'
+                        // placeholder='Add your goal here'
                         onChange={e => setForm ({ ...form, content: e.target.value})}
                         />
                 </div>
@@ -83,7 +97,7 @@ export default function GoalEdit(){
                         type='text'
                         id='imageUrl'
                         value={form.imageUrl}
-                        placeholder='Add direct URL'
+                        // placeholder='Add direct URL'
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
                         />
                 </div>
@@ -99,6 +113,12 @@ export default function GoalEdit(){
                 </div> */}
 
                 <button type='submit'>Submit edits</button>
+
+            </form>
+
+            <form onSubmit={handleDelete}>
+
+                <button type='submit'>Remove goal from my list</button>
 
             </form>
         </div>
