@@ -7,7 +7,8 @@ export default function GoalEdit(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: ''
+        imageUrl: '',
+        note: ''
     })
     // const [content, setContent] = useState('')
 
@@ -31,7 +32,7 @@ export default function GoalEdit(){
             const goal = response.data.goals.filter(goal => goal._id === id)
             console.log(goal)
             console.log(goal[0].content)
-            setForm({content: goal[0].content, imageUrl: goal[0].img_url})
+            setForm({content: goal[0].content, imageUrl: goal[0].img_url, note: goal[0].note})
             // setContent(response.data.goals)
             // console.log(response.data)
         
@@ -85,7 +86,7 @@ export default function GoalEdit(){
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='content'>Content</label>
+                    <label htmlFor='content'><h2>Content:</h2></label>
                     <input 
                         type='text'
                         id='content'
@@ -95,7 +96,7 @@ export default function GoalEdit(){
                         />
                 </div>
                 <div>
-                    <label htmlFor='imageUrl'>Image URL</label>
+                    <label htmlFor='imageUrl'><h2>Image URL:</h2></label>
                     <input 
                         type='text'
                         id='imageUrl'
@@ -104,16 +105,16 @@ export default function GoalEdit(){
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
                         />
                 </div>
-                {/* <div>
-                    <label htmlFor='completed'>Complete Goals</label>
+                <div>
+                    <label htmlFor='note'><h2>Additional Notes:</h2></label>
                     <input 
                         type='text'
-                        id='completed'
-                        value={form.completed}
-                        placeholder='goal completed?'
-                        onChange={e => setForm ({ ...form, completed: e.target.value})}
+                        id='note'
+                        value={form.note}
+                        placeholder='Thoughts? Ideas? Concerns?'
+                        onChange={e => setForm ({ ...form, note: e.target.value})}
                         />
-                </div> */}
+                </div>
 
                 <button type='submit'>Submit edits</button>
 
