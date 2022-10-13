@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({currentUser, setCurrentUser}) {
 
     const [api, setApi] = useState('')
 
@@ -18,13 +18,12 @@ export default function NavBar() {
     useEffect(() => {
         const getApi = async () => {
             try{
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/bucketlist`)
-                // console.log(response.data)
-                // setApi(response.data.item)
-                setForm({...form, content: response.data.item})
+                // const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/bucketlist`)
+                // // console.log(response.data)
+                // // setApi(response.data.item)
+                // setForm({...form, content: response.data.item})
                 // setForm({...form, content: api})
-                console.log(api)
-                console.log(form)
+                
             } catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -36,7 +35,8 @@ export default function NavBar() {
         getApi()
     }, [])
    
-    console.log(api)
+    console.log('api', api)
+    console.log('content', form.content)
         const addGoal = async (e) => {
             // await setForm({...form, content: api})
             e.preventDefault()
@@ -48,8 +48,12 @@ export default function NavBar() {
                         'Authorization': token
                     }
                 }
-                const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals`, form, options)
-                await navigate('/user/profile')
+                if(currentUser){
+                    const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals`, form, options)
+                    await navigate('/user/profile')
+                }else{
+                    await navigate('/user/new')
+                }
             } catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -65,6 +69,7 @@ export default function NavBar() {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/bucketlist`)
             // console.log(response.data)
             setApi(response.data.item)
+            setForm({...form, content: response.data.item})
         } catch(err) {
             console.warn(err)
             if(err.response) {
@@ -81,7 +86,7 @@ export default function NavBar() {
                 <button type="submit"><h2>Get Inspired!</h2></button>
             </form>
 
-            <h2>{form.content}</h2>
+            <h2>{api}</h2>
 
             <form onSubmit={addGoal}>
                 <button type="submit"><h2>Add to my goals!</h2></button>

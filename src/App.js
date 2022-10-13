@@ -37,7 +37,8 @@ function App() {
         <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
         
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home 
+          currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
           <Route path='/user/new' element={<UserNew
            currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
