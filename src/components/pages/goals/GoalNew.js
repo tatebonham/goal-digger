@@ -72,7 +72,7 @@ export default function GoalNew(){
                         />
                 </div>
 
-                <button type='submit'><h2>Make a new goal</h2></button>
+                <button type='submit'><h3>Make a new goal</h3></button>
 
             </form>
         </div>

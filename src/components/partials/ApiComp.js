@@ -83,13 +83,13 @@ export default function NavBar({currentUser, setCurrentUser}) {
     return(
         <div>
             <form onSubmit={updateApi}>
-                <button type="submit"><h2>Get Inspired!</h2></button>
+                <button type="submit"><h3>Get Inspired!</h3></button>
             </form>
 
             <h2>{api}</h2>
 
             <form onSubmit={addGoal}>
-                <button type="submit"><h2>Add to my goals!</h2></button>
+                <button type="submit"><h3>Add to my goals!</h3></button>
             </form>
 
         </div>
