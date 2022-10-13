@@ -32,8 +32,8 @@ export default function NavBar({currentUser, setCurrentUser}){
         <nav>
             <div>
                 <Link to ="/"> Home </Link> 
-                {currentUser ? loggedIn : loggedOut}
                 <Link to ="/goal/new"> Create New Goal</Link>
+                {currentUser ? loggedIn : loggedOut}
             </div>
         </nav>
     )
