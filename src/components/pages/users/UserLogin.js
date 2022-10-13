@@ -64,7 +64,7 @@ export default function UserLogin( {currentUser, setCurrentUser}){
                         onChange={e => setPassword (e.target.value)}
                         value={password}
                     />
-                <button type="submit">Login</button>
+                <button type="submit"><h2>Login</h2></button>
             </form>
         </div>
     )
