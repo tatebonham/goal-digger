@@ -33,9 +33,8 @@ export default function Home(){
     return(
     <div>
         <h1>Welcome To Goal Digger</h1>
-        <h3> Get inspired</h3>
         
-        <h2>{api}</h2>
+        <h2><ApiComp /></h2>
         <p>{errorMessage}</p>
         <CarouselFade />
     </div>
