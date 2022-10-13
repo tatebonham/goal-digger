@@ -30,7 +30,7 @@ a:visited {
 a:hover {
   color: rgba(210, 207, 207, 0.791) !important;
 }
-  h1, h2, h3, p {
+  h1, h2, h3 {
     color: white;
     margin: 20px;
     text-shadow: 1px 1px 2px black;
@@ -63,6 +63,17 @@ button[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
+button {
+  width: 20%;
+  background-color: #7954adc1;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 10px 10px 10px;
+  border: none;
+  border-radius: 4px !important;
+  cursor: pointer;
+}
+
 input[type=id] {
   color: white;
 }
@@ -74,5 +85,13 @@ img {
 }
 
 * {
-  
+  color: white !important;
+  text-shadow: 1px 1px 2px black;
+}
+input {
+  color: grey;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(33, 32, 32, 0.607);
+  opacity: 1; /* Firefox */
 }
