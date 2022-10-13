@@ -1,11 +1,11 @@
 export default function GoalCard(props){
 
-    const token = localStorage.getItem('jwt')
-        const options = {
-            headers: {
-                'Authorization': token
-            }
-    }
+    // const token = localStorage.getItem('jwt')
+    //     const options = {
+    //         headers: {
+    //             'Authorization': token
+    //         }
+    // }
 
     return(
         <div>

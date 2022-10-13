@@ -47,7 +47,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
             const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/edit`, form, options)
             console.log(e.target.value)
             // got to user profile page
-            navigate(`/`)
+            navigate(`/user/profile`)
 
         }catch(err){
             if(err.response){
@@ -63,7 +63,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
         <div>
             <h1> Edit Profile Information </h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name"> Update Name: </label>
+                <label htmlFor="name"><h2>Update Name:</h2></label>
                     <input
                         type = "text"
                         id = "name"
@@ -71,7 +71,7 @@ export default function ProfileEdit({currentUser, setCurrentUser}){
                         placeholder = "Enter your new user name"
                         onChange = { e => setForm({...form, name: e.target.value})}
                     />
-                <label htmlFor="email">Update Email:</label>
+                <label htmlFor="email"><h2>Update Email:</h2></label>
                     <input
                         type = "text"
                         id = "email"

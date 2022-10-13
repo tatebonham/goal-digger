@@ -8,7 +8,8 @@ export default function GoalEdit(){
     const [form, setForm] = useState({
         content: '',
         imageUrl: '',
-        note: ''
+        note: '', 
+        completed: ''
     })
     // const [content, setContent] = useState('')
 
@@ -32,7 +33,7 @@ export default function GoalEdit(){
             const goal = response.data.goals.filter(goal => goal._id === id)
             console.log(goal)
             console.log(goal[0].content)
-            setForm({content: goal[0].content, imageUrl: goal[0].img_url, note: goal[0].note})
+            setForm({content: goal[0].content, imageUrl: goal[0].img_url, note: goal[0].note, completed: goal[0].completed})
             // setContent(response.data.goals)
             // console.log(response.data)
         
@@ -77,8 +78,23 @@ export default function GoalEdit(){
             }
         }
     }
+    const completed = async e => {
+        e.preventDefault()
+        try {
+            if(form.completed){
+                setForm({...form, completed: false})
+            } else{
+                setForm({...form, completed: true})
+            }
+        } catch(err) {
+            console.warn(err)
+            if(err.response){
+                setErrorMessage(err.response.data.message)
+            }
+        }
+    }
 
-
+console.log(form)
     return(
         <div>
             <h1>Edit Goals:</h1>
@@ -115,14 +131,17 @@ export default function GoalEdit(){
                         onChange={e => setForm ({ ...form, note: e.target.value})}
                         />
                 </div>
+                <div>
+                    <button onClick={completed}><h2>{form.completed ? 'Yet to be Achieved': 'Goal Achieved' }</h2></button>
+                </div>
 
-                <button type='submit'>Submit edits</button>
+                <button type='submit'><h2>Submit edits</h2></button>
 
             </form>
 
             <form onSubmit={handleDelete}>
 
-                <button type='submit'>Remove goal from my list</button>
+                <button type='submit'><h2>Remove goal from my list</h2></button>
 
             </form>
         </div>
