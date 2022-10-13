@@ -100,6 +100,14 @@ img {
   text-shadow: 1px 1px 2px black;
 }
 
+.content {
+  font-size: 20px;
+}
+
+.note{
+ font-size: 18px;
+}
+
 input {
   color: grey;
 }

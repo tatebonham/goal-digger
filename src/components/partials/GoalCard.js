@@ -9,11 +9,11 @@ export default function GoalCard(props){
 
     return(
         <div>
-            <div>
+            <div className="content">
                - { props.content }
             </div>
             <div>{props.img_url ? <img src={props.img_url} alt={props.content} height={200} width={300} /> : null}</div>
-            <div>{props.note}</div>
+            <div className="note">{props.note}</div>
         </div>
     )
 }
