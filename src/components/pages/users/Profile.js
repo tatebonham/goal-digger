@@ -70,18 +70,18 @@ export default function Profile(){
             <Link to="/goal/new"> New Goals </Link> 
             {/* edit your profile */}
             <Link to = "/user/edit"> Edit your profile</Link>
-            <div>
-                <h2>Bucketlist Goals</h2>
-                {goalLink}
+            <div className='row'>
+                <div className='Bucketlist column'>
+                    <h2>Bucketlist Goals</h2>
+                    {goalLink}
+                </div>
+        
+                <div className='completed column'>
+                    <h2>Completed Goals</h2>
+                    {completedGoalLink}
 
-            </div>
-    
-            <div>
-            <h2>Completed Goals</h2>
-            {completedGoalLink}
-
-            </div>
-
+                </div>
+        </div>
         </div>
     )
 }
