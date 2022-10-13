@@ -7,7 +7,8 @@ export default function GoalEdit(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: ''
+        imageUrl: '',
+        note: ''
     })
     // const [content, setContent] = useState('')
 
@@ -17,7 +18,7 @@ export default function GoalEdit(){
             'Authorization': token
         }
     }
-
+    console.log(options)
     const [errorMessage, setErrorMessage] = useState('')
 
     const { id } = useParams()
@@ -26,11 +27,17 @@ export default function GoalEdit(){
     useEffect(() => {
         const getGoal = async () => {
         try {
+            console.log(id)
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
-            setForm({content: response.data.goals[0].content, imageUrl: response.data.goals[0].imageUrl})
-            // setContent(response.data.goals[0].content)
-            // console.log(content)
-            console.log(response.data.goals[0].content)
+            const goal = response.data.goals.filter(goal => goal._id === id)
+            console.log(goal)
+            console.log(goal[0].content)
+            setForm({content: goal[0].content, imageUrl: goal[0].img_url, note: goal[0].note})
+            // setContent(response.data.goals)
+            // console.log(response.data)
+        
+            // console.log(response.data.goals[0].content)
+            // console.log(response.data.goals[0].img_url)
         } catch (err) {
             console.warn(err)
             if(err.response) {
@@ -41,17 +48,12 @@ export default function GoalEdit(){
     getGoal()
 }, [])
     // console.log(content)
-    console.log(form)
+    // console.log(form)
 
     const handleSubmit = async e => {
         e.preventDefault()
         try {
-            // const token = localStorage.getItem('jwt')
-            // const options = {
-            //     headers: {
-            //         'Authorization': token
-            //     }
-            // }
+
             const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, form, options)
             navigate(`/user/profile`)
         } catch(err) {
@@ -61,6 +63,22 @@ export default function GoalEdit(){
             }
         }
     }
+
+    const handleDelete = async e => {
+        e.preventDefault()
+        try {
+            console.log(options)
+            const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals/${id}`, options)
+            navigate(`/user/profile`)
+        } catch(err) {
+            console.warn(err)
+            if(err.response){
+                setErrorMessage(err.response.data.message)
+            }
+        }
+    }
+
+
     return(
         <div>
             <h1>Edit Goals:</h1>
@@ -68,37 +86,43 @@ export default function GoalEdit(){
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='content'>Content</label>
+                    <label htmlFor='content'><h2>Content:</h2></label>
                     <input 
                         type='text'
                         id='content'
                         value={form.content}
-                        placeholder='Add your goal here'
+                        // placeholder='Add your goal here'
                         onChange={e => setForm ({ ...form, content: e.target.value})}
                         />
                 </div>
                 <div>
-                    <label htmlFor='imageUrl'>Image URL</label>
+                    <label htmlFor='imageUrl'><h2>Image URL:</h2></label>
                     <input 
                         type='text'
                         id='imageUrl'
                         value={form.imageUrl}
-                        placeholder='Add direct URL'
+                        // placeholder='Add direct URL'
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
                         />
                 </div>
-                {/* <div>
-                    <label htmlFor='completed'>Complete Goals</label>
+                <div>
+                    <label htmlFor='note'><h2>Additional Notes:</h2></label>
                     <input 
                         type='text'
-                        id='completed'
-                        value={form.completed}
-                        placeholder='goal completed?'
-                        onChange={e => setForm ({ ...form, completed: e.target.value})}
+                        id='note'
+                        value={form.note}
+                        placeholder='Thoughts? Ideas? Concerns?'
+                        onChange={e => setForm ({ ...form, note: e.target.value})}
                         />
-                </div> */}
+                </div>
 
                 <button type='submit'>Submit edits</button>
+
+            </form>
+
+            <form onSubmit={handleDelete}>
+
+                <button type='submit'>Remove goal from my list</button>
 
             </form>
         </div>

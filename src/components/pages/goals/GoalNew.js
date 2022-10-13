@@ -6,7 +6,8 @@ export default function GoalNew(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: ''
+        imageUrl: '',
+        note: ''
     })
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -26,7 +27,7 @@ export default function GoalNew(){
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/goals`, form, options)
             console.log(response.data)
             console.log(form)
-            navigate('/')
+            navigate('/user/profile')
         } catch (err) {
             console.warn(err)
             if (err.response) {
@@ -41,7 +42,7 @@ export default function GoalNew(){
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='content'> Goal </label>
+                    <label htmlFor='content'><h2>Goal:</h2></label>
                     <input 
                         type='text'
                         id='content'
@@ -51,13 +52,23 @@ export default function GoalNew(){
                         />
                 </div>
                 <div>
-                    <label htmlFor='imageUrl'>Image</label>
+                    <label htmlFor='imageUrl'><h2>Image:</h2></label>
                     <input 
                         type='text'
                         id='imageUrl'
                         value={form.imageUrl}
                         placeholder='Add direct URL'
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
+                        />
+                </div>
+                <div>
+                    <label htmlFor='note'><h2>Additional Notes:</h2></label>
+                    <input 
+                        type='text'
+                        id='note'
+                        value={form.note}
+                        placeholder='Thoughts? Ideas? Concerns?'
+                        onChange={e => setForm ({ ...form, note: e.target.value})}
                         />
                 </div>
 

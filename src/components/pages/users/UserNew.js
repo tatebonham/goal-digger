@@ -1,14 +1,14 @@
 import { useState } from "react"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
-import { Navigate, useNavigate }  from "react-router-dom"
+import { Navigate, useNavigate, Link }  from "react-router-dom"
 
 
 export default function UserNew({currentUser, setCurrentUser}){
 // state for the controlled form
-const [name, setName] =useState(" ")
-const [email, setEmail]= useState(" ")
-const [password, setPassword] = useState (" ")
+const [name, setName] =useState("")
+const [email, setEmail]= useState("")
+const [password, setPassword] = useState ("")
 const [msg, setMsg] = useState(" ")
 const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const handleSubmit = async e =>{
         // set the user in Apps state to be the decoded token
         setCurrentUser(decoded)
         // got to user profile page
-        navigate("/")
+        navigate("/user/profile")
 
     }catch(err){
         console.warn(err)
@@ -45,17 +45,17 @@ const handleSubmit = async e =>{
 
 // render a navigate component if user is already logged in 
     if (currentUser){
-        return <Navigate to = "users/:id" />
+        return <Navigate to = "/user/profile" />
     }
     return(
         <div>
-           <h1> Sign up to create your Bucket List </h1>
+           <h1> Sign up to create a Bucket List </h1>
             {/* display msg if error occure */}
             <p> {msg}</p>
 
             {/* new user form */}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name"> Name: </label>
+                <label htmlFor="name"> <h2>Name:</h2></label>
                     <input 
                         type = "text"
                         id = "name"
@@ -64,7 +64,7 @@ const handleSubmit = async e =>{
                         value = {name}
                         required
                     />
-                <label htmlFor="email"> Email:</label>
+                <label htmlFor="email"> <h2>Email:</h2></label>
                     <input 
                         type = "text"
                         id = "email"
@@ -73,7 +73,7 @@ const handleSubmit = async e =>{
                         value = {email}
                         required
                         />
-                <label htmlFor="password"> Password:</label>
+                <label htmlFor="password"> <h2>Password:</h2></label>
                     <input 
                         type = "text"
                         id = "password"
@@ -84,6 +84,11 @@ const handleSubmit = async e =>{
                     />
                 <button type="submit"> Register </button>
             </form>
+
+            <div>
+                <p>Already a member?<Link to="/user/login"><u>Login here</u></Link></p>
+            </div>
+
         </div>
     )
 }

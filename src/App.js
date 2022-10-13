@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { useState , useEffect} from 'react';
 import jwt_decode from "jwt-decode"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/pages/Home'
 import GoalEdit from './components/pages/goals/GoalEdit'
@@ -11,6 +12,7 @@ import ProfileEdit from './components/pages/users/ProfileEdit'
 import UserNew from './components/pages/users/UserNew'
 import UserLogin from './components/pages/users/UserLogin'
 import NavBar from './components/partials/NavBar'
+
 
 function App() {
 
@@ -53,8 +55,9 @@ function App() {
           <Route path='/user/edit' element={<ProfileEdit 
           currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
 
-          <Route path='/goal/new' element={<GoalNew 
-          currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path='/goal/new' element={ currentUser ? <GoalNew 
+          currentUser={currentUser} setCurrentUser={setCurrentUser} /> : <UserNew
+          currentUser={currentUser} setCurrentUser={setCurrentUser} /> } />
 
 
           <Route path='/goal/:id/edit' element={<GoalEdit 
