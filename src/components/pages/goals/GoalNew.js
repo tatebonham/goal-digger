@@ -6,7 +6,8 @@ export default function GoalNew(){
     //  state to hold our form
     const [form, setForm] = useState({
         content: '',
-        imageUrl: ''
+        imageUrl: '',
+        note: ''
     })
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -58,6 +59,16 @@ export default function GoalNew(){
                         value={form.imageUrl}
                         placeholder='Add direct URL'
                         onChange={e => setForm ({ ...form, imageUrl: e.target.value})}
+                        />
+                </div>
+                <div>
+                    <label htmlFor='note'><h2>Additional Notes:</h2></label>
+                    <input 
+                        type='text'
+                        id='note'
+                        value={form.note}
+                        placeholder='Thoughts? Ideas? Concerns?'
+                        onChange={e => setForm ({ ...form, note: e.target.value})}
                         />
                 </div>
 
