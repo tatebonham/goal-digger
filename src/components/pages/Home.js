@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import ApiComp from '../partials/ApiComp'
 
 import CarouselFade from "../partials/CarouselFade"
 
