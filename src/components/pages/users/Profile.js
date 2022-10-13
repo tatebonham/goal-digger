@@ -31,13 +31,35 @@ export default function Profile(){
     }, [])
     console.log(goals)
 
-    const goalLink = goals.map(goal => {
-        return(
-            <div key={goal._id}>
-                <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url} note={goal.note}   />
-                <Link to={`/goal/${goal._id}/edit`} >Edit Goal</Link>
-            </div>
-        )
+    const completedGoals = goals.filter(goal => goal.completed === true)
+
+    const incompleteGoals = goals.filter(goal => goal.completed === false)
+
+
+    console.log(`completed goals:`, completedGoals)
+    console.log(`completed goals:`, incompleteGoals)
+    const goalLink = incompleteGoals.map(goal => {
+        if(goal.completed === false) {
+            console.log(`completed goals:`, goal)
+            return(
+                <div key={goal._id}>
+                    <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url} note={goal.note}   />
+                    <Link to={`/goal/${goal._id}/edit`} >Edit Goal</Link>
+                </div>
+            )
+        }
+    })
+    const completedGoalLink = completedGoals.map(goal => {
+        if(goal.completed === true) {
+            console.log(`completed goals:`, goal)
+            return(
+                <div key={goal._id}>
+                    <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url} note={goal.note}   />
+                    <Link to={`/goal/${goal._id}/edit`} >Edit Goal</Link>
+                </div>
+            )
+
+        }
     })
 
     return(
@@ -48,9 +70,18 @@ export default function Profile(){
             <Link to="/goal/new"> New Goals </Link> 
             {/* edit your profile */}
             <Link to = "/user/edit"> Edit your profile</Link>
-            
-            {goalLink}
+            <div>
+                <h2>Bucketlist Goals</h2>
+                {goalLink}
+
+            </div>
     
+            <div>
+            <h2>Completed Goals</h2>
+            {completedGoalLink}
+
+            </div>
+
         </div>
     )
 }
