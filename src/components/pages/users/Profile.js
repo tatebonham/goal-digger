@@ -53,7 +53,7 @@ export default function Profile(){
         if(goal.completed === true) {
             console.log(`completed goals:`, goal)
             return(
-                <div key={goal._id}>
+                <div key={goal._id} >
                     <GoalCard completed={goal.completed} content={goal.content} img_url={goal.img_url} note={goal.note}   />
                     <Link to={`/goal/${goal._id}/edit`} >Edit Goal</Link>
                 </div>
