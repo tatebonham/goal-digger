@@ -36,7 +36,7 @@ a:hover {
     text-shadow: 1px 1px 2px black;
 }
 a {
-  /* color: white !important; */
+  color: white !important;
   margin: 20px;
   text-decoration: none !important; 
   text-shadow: 1px 1px 2px black;
