@@ -2,6 +2,7 @@ import { Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import GoalCard from '../../partials/GoalCard'
+import GoalListAccordian from '../../partials/GoallListAccordian'
 
 export default function Profile(){
 
