@@ -7,6 +7,9 @@ Bucket List Application
 A one stop shop for all your bucket list ideas! Plan your future goals and keep track of those completed. 
 Get inspired by a random bucket list idea or add your own item.
 
+## Live Link
+https://helpful-dusk-923e50.netlify.app/
+
 ## Wireframe
 
 - Landing page 1 - Bucket list options
