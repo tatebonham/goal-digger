@@ -1,6 +1,7 @@
 # goal-digger
 
 Bucket List Application
+goal-digger.netlify.app
 
 ## Description
 
@@ -92,7 +93,7 @@ https://helpful-dusk-923e50.netlify.app/
 - HTML 
 - API : https://api-ninjas.com/api/bucketlist - you will need to register for an API key
 
-## Deployement Instructions
+## Deployment Instructions
 1. Fork and clone repository 
 2. In your terminal run <npm install>  (this will install all needed packages)
 3. You will want to install a couple of files for functionality
